@@ -222,13 +222,16 @@ public class Main {
 		for (int nu = 0; nu < 10; nu += 2) {
 			System.out.println(nu);
 		}
+		for (int nu = 0; nu < 10; nu += 2) {
+			System.out.println(nu);
+		}
 
 	}
 
 	public static void exo2() {
 		// Ecrire un programme java qui demande à l’utilisateur de saisir
 		// un nombre entier et de lui afficher que le nombre est pair ou
-		// impair selon la valeur tapée
+		// impair selon la valeur tapé
 		Scanner in = new Scanner(System.in);
 		try {
 			System.out.print("Input number: ");

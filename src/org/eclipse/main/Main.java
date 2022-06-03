@@ -1,6 +1,9 @@
 package org.eclipse.main;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -27,6 +30,8 @@ public class Main {
 		System.out.println(y);
 
 		System.out.println("------------------------------------------------------------------");
+
+		// Classe String
 
 		// replace(old,new) : permet de remplacer toute occurrence de la chaıne old
 		// dans la chaıne courante par new et retourne la nouvelle chaıne
@@ -73,7 +78,7 @@ public class Main {
 		int i = 2;
 		int f = i += 2; // => i = i + 2
 
-		System.out.println(i); // Affiche 3
+		System.out.println(i); // Affiche 4
 		System.out.println(f); // Affiche 2
 
 		// Pre-incrementation
@@ -82,13 +87,6 @@ public class Main {
 
 		System.out.println(a); // Affiche 3
 		System.out.println(b); // Affiche 3
-
-		// Post-incrementation
-		int c = 2;
-		int d = i += 2; // => i = i + 2
-
-		System.out.println(i); // Affiche 3
-		System.out.println(d); // Affiche 2
 
 		System.out.println("------------------------------------------------------------------");
 
@@ -100,6 +98,8 @@ public class Main {
 		System.out.println(result);
 
 		System.out.println("------------------------------------------------------------------");
+
+		// Variables JAVA
 
 		float floatNum = 4.95f;
 		System.out.println(floatNum);
@@ -210,24 +210,63 @@ public class Main {
 			System.out.println(index);
 		}
 
-		exo1();
-		exo2();
-		exo3();
+		// Appel de la methode statique
+//		exo2();
+//		exo3();
+//
+//		Main main = new Main();
+//		main.exo1();
+		
+		System.out.println("------------------------------------------------------------------");
 
+//		String[] sports = new String[3];
+		
+//		sports[0] = "Judo";
+//		sports[1] = "Tennis";
+//		sports[2] = "Foot";
+		
+//		String[] sports = new String[] { "Judo", "Tennis", "Foot" }; // Taille 3 Fixe
+		
+		// tableau statique
+		String[] sports = { "Judo", "Tennis", "Foot" }; // Taille 3 Fixe
+		
+		for (String sport : sports) {
+			System.out.println(sport);
+		}
+		
+		System.out.println(sports[1]);
+		
+		// Collection dynamique
+		List<String> names = Arrays.asList("Tom", "Jerry", "Donald");
+		
+		
+		for(int l = 0; l < names.size(); l++ ) {
+			System.out.println(names.get(l));
+		}
+		
+		for (String name : names) {
+			System.out.println(name);
+		}
+		
+		names.forEach((name) -> System.out.println(name));
+		
 	}
 
-	public static void exo1() {
+	// Creation d'une methode simple representant une serie d'instruction,
+	// n'echangeant pas d'informations avec le programme
+	// Une methode non statique est une methode qui utilise une nouvelle instance d'objet, ici Main
+	public void exo1() {
 		// Ecrire un code Java qui permet d’afficher les nombres pairs compris entre 0
 		// et 10. (value % 2 == 0)
 		for (int nu = 0; nu < 10; nu += 2) {
 			System.out.println(nu);
 		}
-		for (int nu = 0; nu < 10; nu += 2) {
-			System.out.println(nu);
-		}
-
 	}
 
+	// Creation d'une methode simple representant une serie d'instruction,
+	// n'echangeant pas d'informations avec le programme
+	// une methode statique est une methode qui n'as pas d'instance, cad, qu'elles
+	// peuvent etre utilisee sans instancier un objet de la classe, ici Main
 	public static void exo2() {
 		// Ecrire un programme java qui demande à l’utilisateur de saisir
 		// un nombre entier et de lui afficher que le nombre est pair ou
@@ -249,31 +288,20 @@ public class Main {
 	public static void exo3() {
 		Scanner scanner2 = new Scanner(System.in);
 		try {
-			while (true) {
-				System.out.print("Input the 1st number: ");
-				int num1 = scanner2.nextInt();
-				System.out.print("Input the 2nd number: ");
-				int num2 = scanner2.nextInt();
-				System.out.print("Input the 3rd number: ");
-				int num3 = scanner2.nextInt();
-				
-//				if (num1 > num2 && num1 > num3) {
-//					System.out.println("The greatest: " + num1);
-//					break;
-//				} else if (num2 > num1 && num2 > num3) {
-//					System.out.println("The greatest: " + num2);
-//					break;
-//				} else {
-//					System.out.println("The greatest: " + num3);
-//					break;
-//				}
-				
-				// avec la classe Math.max
-				int num = Math.max(num1, num2);
-				num = Math.max(num, num3);
-				
-				System.out.println("The greatest :" + num);
-			}
+
+			System.out.print("Input the 1st number: ");
+			int num1 = scanner2.nextInt();
+			System.out.print("Input the 2nd number: ");
+			int num2 = scanner2.nextInt();
+			System.out.print("Input the 3rd number: ");
+			int num3 = scanner2.nextInt();
+
+			// avec la classe Math.max
+			int num = Math.max(num1, num2);
+			num = Math.max(num, num3);
+
+			System.out.println("The greatest :" + num);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
